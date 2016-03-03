@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="SampleModule">
+	<head>
+		<link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.css" rel="stylesheet">
+		<script src="http://cdn.bootcss.com/angular.js/1.5.0/angular.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<h1>Part 3</h1>
+		<div class="container" ng-controller="TextAreaWithLimitCtrl">
+			<div class="row">
+				<span ng-class="{'text-warning':shouldWarn()}">Remaining: {{remaining()}}</span>
+				<textarea ng-model="message">{{message}}</textarea>
+			</div>
+			<div class="row">
+				<button ng-disabled="!hasValidLength()" ng-click="send()">Send</button>
+				<button ng-click="clear()">Clear</button>
+			</div>
+		</div>
+		<hr>
+		<h1>Part 2</h1>
+		<ul ng-controller="WorldCtrl">
+			<li ng-repeat="country in countries">
+				{{country.name}} has population of {{country.population}}
+				{{worldsPercentage(country.population)}} % of the World's population.
+			</li>
+
+			World's population: {{population}} millions
+		</ul>
+		<hr>
+		<h1>Part 1</h1>
+		<div ng-controller="HelloCtrl">
+			Say hello to : <input type="text" ng-model="name">
+			<h3>Hello,{{name}}</h3>
+		</div>
+	</body>
+</html>
